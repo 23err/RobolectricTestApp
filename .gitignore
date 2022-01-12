@@ -7,6 +7,7 @@
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+.idea
 .DS_Store
 /build
 /captures
@@ -14,10 +15,9 @@
 .cxx
 local.properties
 
-.idea
 
-# Created by https://www.toptal.com/developers/gitignore/api/android,androidstudio,kotlin
-# Edit at https://www.toptal.com/developers/gitignore?templates=android,androidstudio,kotlin
+# Created by https://www.toptal.com/developers/gitignore/api/kotlin,android,androidstudio
+# Edit at https://www.toptal.com/developers/gitignore?templates=kotlin,android,androidstudio
 
 ### Android ###
 # Gradle files
@@ -208,4 +208,4 @@ fabric.properties
 
 !/gradle/wrapper/gradle-wrapper.jar
 
-# End of https://www.toptal.com/developers/gitignore/api/android,androidstudio,kotlin
+# End of https://www.toptal.com/developers/gitignore/api/kotlin,android,androidstudio
