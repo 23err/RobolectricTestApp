@@ -5,10 +5,12 @@ import com.geekbrains.tests.model.SearchResult
 import com.geekbrains.tests.presenter.search.SearchPresenter
 import com.geekbrains.tests.repository.GitHubRepository
 import com.geekbrains.tests.view.search.ViewSearchContract
+import org.junit.Assert
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
+import org.mockito.Mockito
 import org.mockito.Mockito.*
 import org.mockito.MockitoAnnotations
 import retrofit2.Response
@@ -30,7 +32,7 @@ class SearchPresenterTest {
         //Раньше было @RunWith(MockitoJUnitRunner.class) в аннотации к самому классу (SearchPresenterTest)
         MockitoAnnotations.initMocks(this)
         //Создаем Презентер, используя моки Репозитория и Вью, проинициализированные строкой выше
-        presenter = SearchPresenter(viewContract, repository)
+        presenter = SearchPresenter(repository, viewContract)
     }
 
     @Test //Проверим вызов метода searchGitHub() у нашего Репозитория
@@ -148,5 +150,17 @@ class SearchPresenterTest {
 
         //Убеждаемся, что ответ от сервера обрабатывается корректно
         verify(viewContract, times(1)).displaySearchResults(searchResults, 101)
+    }
+
+    @Test
+    fun onAttachViewContract_Test(){
+        presenter.onAttach(viewContract)
+        Assert.assertNotNull(presenter.getViewContract())
+    }
+
+    @Test
+    fun onDetachViewContract_Test(){
+        presenter.onDetach()
+        Assert.assertNull(presenter.getViewContract())
     }
 }
